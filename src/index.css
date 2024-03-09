@@ -53,8 +53,8 @@ h1 {
   z-index: -1;
 }
 .container {
-  height: 500px;
-  width: 500px;
+  height: 450px;
+  width: 450px;
   margin: auto;
   padding: 0 1rem;
   position: relative;
