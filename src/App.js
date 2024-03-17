@@ -1,17 +1,26 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 function App() {
   const [data, setData] = useState({});
-  const [location, setLocation] = useState("kolkata");
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperialr&appid=f8ba1d9534c0233d22b13e5036f20e38`;
-  const searchLocation = (e) => {
-    if (e.key === "Enter") {
-      axios.get(url).then((resp) => {
+  const [location, setLocation] = useState("");
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=f8ba1d9534c0233d22b13e5036f20e38`;
+
+  const searchLocation = async (e) => {
+    try {
+      if (e.key === "Enter") {
+        const resp = await axios.get(url);
         setData(resp.data);
-      });
-      setLocation("");
+        setLocation("");
+      }
+    } catch (error) {
+      console.log(error.message);
     }
   };
+
+  useEffect(() => {
+    searchLocation();
+  }, []); // Empty dependency array to only run once on mount
 
   return (
     <div className="app">
@@ -33,7 +42,7 @@ function App() {
             <h1>{data.main?.temp.toFixed()}°F</h1>
           </div>
           <div className="description">
-            <h3>{data?.weather[0]?.main}</h3>
+            <h3>{data.weather && data.weather[0]?.main}</h3>
           </div>
         </div>
         <div className="bottom">
