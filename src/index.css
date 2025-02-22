@@ -3,7 +3,7 @@
   margin: 0%;
   padding: 0%;
 }
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -67,7 +67,9 @@ h1 {
   width: 100%;
   margin: 1rem auto;
   /* text-align: center; */
-}
+
+
+/* }
 .app .bottom {
   display: flex;
   justify-content: space-evenly;
@@ -80,4 +82,151 @@ h1 {
 }
 .bold {
   font-weight: 700;
+}
+ */
+
+ /* Add viewport meta tag in HTML head for proper mobile scaling */
+/* <meta name="viewport" content="width=device-width, initial-scale=1.0" /> */
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: aliceblue;
+}
+
+.app::before {
+  content: "";
+  background: url("./asset/sunset.jpg") no-repeat center center/cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.container {
+  max-width: 450px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  top: 10%;
+}
+
+.search {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+input {
+  width: 80%;
+  max-width: 400px;
+  padding: 0.7rem 1.5rem;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  color: #fff;
+  font-size: 1rem;
+  margin: 0 auto;
+}
+
+::placeholder {
+  color: #fff;
+  opacity: 0.8;
+}
+
+h1 {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 1rem;
+  text-align: center;
+  width: 100%;
+  padding: 1.5rem 1rem;
+  margin: 1.5rem auto;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+/* Media Queries for Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  .container {
+    top: 5%;
+  }
+
+  .bottom {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  input {
+    width: 90%;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .bottom {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 0.5rem;
+  }
+
+  .container {
+    top: 3%;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .container {
+    top: 5%;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
 }
