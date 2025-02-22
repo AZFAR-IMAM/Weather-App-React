@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     searchLocation();
-  }, []); // Empty dependency array to only run once on mount
+  }, [searchLocation]); // Empty dependency array to only run once on mount
 
   return (
     <div className="app">
